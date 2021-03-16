@@ -122,6 +122,28 @@
                     </a>
                 </li>
                 @endcan
+                <li class="nav-item has-treeview {{ showMenu('cotizacion.*') . showMenu('producto.*') }}">
+                    <a href="#" class="nav-link {{ setActive('cotizacion.*') . setActive('producto.*') }}">
+                        <i class="nav-icon fas fa-folder-open"></i>
+                        <p>Cotizaciones en sitio
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('cotizacion.index') }}" class="nav-link {{ setActive('cotizacion.*') }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Cotizaciones</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('producto.index') }}" class="nav-link {{ setActive('producto.*') }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Productos</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
                 @can('show_users')
                     <li class="nav-item">
                         <a href="{{ route('users.index') }}" class="nav-link {{ setActive('users.*') }}">
