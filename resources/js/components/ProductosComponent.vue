@@ -9,8 +9,8 @@
                     <div class="form-group">
                         <label for="productType" class="sr-only">Tipo</label>
                         <select v-model="productType" class="form-control" name="productType" id="productType">
-                            <option value="2">Kit's</option>
                             <option value="1">Productos</option>
+                            <option value="2">Kit's</option>
                         </select>
                     </div>
                 </div>
@@ -41,15 +41,15 @@
                 </thead>
                 <tbody>
 
-                <tr v-for="producto in productos.data">
+                <tr v-if="productos.data <= 0">
+                    <td colspan="4">No existen registros en la base de datos.</td>
+                </tr>
+
+                <tr v-for="producto in productos.data" v-bind:key="producto.id">
                     <td>{{ producto.codigo }}</td>
                     <td>{{ producto.nombre }}</td>
                     <td class="text-right">$ {{ producto.precio }}</td>
                     <td></td>
-                </tr>
-
-                <tr v-if="productos.data == null">
-                    <td colspan="4">No existen registros en la base de datos.</td>
                 </tr>
 
                 </tbody>
