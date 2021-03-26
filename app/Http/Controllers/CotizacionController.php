@@ -8,6 +8,8 @@ class CotizacionController extends Controller
 {
     public function index()
     {
-        return "";
+        return view('cotizaciones.index', [
+            'cotizaciones' => '',
+        ]);
     }
 }
