@@ -17,7 +17,7 @@ class CreateCotizacionesTable extends Migration
             $table->id();
             $table->string('nombre');
             $table->longText('direccion');
-            $table->dateTime('date');
+            $table->dateTime('fecha');
             $table->timestamps();
         });
     }
