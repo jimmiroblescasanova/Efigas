@@ -17,4 +17,8 @@ class Producto extends Model
     {
         return $this->attributes['precio'] = $val / 100;
     }
+
+    public function cotizacion() {
+        return $this->belongsTo('App\Cotizacion');
+    }
 }

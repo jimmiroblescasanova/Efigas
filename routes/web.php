@@ -138,6 +138,8 @@ Route::get('/test', 'TestController@index');
 //Route::get('scripts', 'ScriptsController@calculateIvaColumn');
 
 Route::get('/cotizacion', 'CotizacionController@index')->name('cotizacion.index');
+Route::get('/cotizacion/create', 'CotizacionController@create')->name('cotizacion.create');
+//Route::post('/cotizacion/create', 'CotizacionController@store')->name('cotizacion.store');
 
 Route::get('/productos', 'ProductosController@index')->name('producto.index');
 Route::get('/productos/cargar', 'ProductosController@create')->name('producto.cargar');
