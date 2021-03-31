@@ -7,5 +7,5 @@
 @stop
 
 @section('content')
-    <livewire:cotizacion />
+    <livewire:estimations.create />
 @stop

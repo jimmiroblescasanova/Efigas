@@ -1,14 +1,13 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Estimations;
 
 use App\Producto;
 use App\Cotizacion;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-
-class CotizacionComponent extends Component
+class Create extends Component
 {
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
@@ -46,7 +45,7 @@ class CotizacionComponent extends Component
         $result['nombre'] = $producto->nombre;
         $result['precio'] = $producto->precio;
 
-        array_push($this->rowInput ,$result);
+        array_push($this->rowInput, $result);
         $this->searchInput = '';
     }
 
@@ -74,8 +73,7 @@ class CotizacionComponent extends Component
             'direccion' => $this->direccion,
         ]);
 
-        foreach ($this->rowInput as $row)
-        {
+        foreach ($this->rowInput as $row) {
             $fila = $documento->movimientos()->create([
                 'id_producto' => $row['id'],
                 'cantidad' => $row['cantidad'],
@@ -92,14 +90,12 @@ class CotizacionComponent extends Component
     {
         $prod = '';
 
-        if($this->searchInput != '')
-        {
-            $prod = Producto::where('nombre', 'LIKE', '%'.$this->searchInput.'%')->paginate(5);
+        if ($this->searchInput != '') {
+            $prod = Producto::where('nombre', 'LIKE', '%' . $this->searchInput . '%')->paginate(5);
         }
 
-        return view('livewire.cotizacion', [
+        return view('livewire.estimations.create', [
             'products' => $prod,
         ]);
     }
-
 }

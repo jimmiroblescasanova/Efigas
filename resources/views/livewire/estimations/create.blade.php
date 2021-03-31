@@ -65,7 +65,6 @@
                                                         wire:model="rowInput.{{ $i }}.cantidad"
                                                         type="number"
                                                         class="form-control form-control-sm {{ $errors->first('rowInput.'. $i .'.cantidad') ? 'is-invalid' : '' }}"
-                                                        value="1"
                                                     />
                                                     {!! $errors->first('rowInput.'. $i .'.cantidad', '<div class="invalid-feedback">:message</div>') !!}
                                                 </td>
@@ -83,6 +82,7 @@
                                                         type="text"
                                                         class="form-control form-control-sm {{ $errors->first('rowInput.'. $i .'.precio') ? 'is-invalid' : '' }}"
                                                         value="{{ $row['precio'] }}"
+                                                        readonly
                                                     />
                                                     {!! $errors->first('rowInput.'. $i .'.precio', '<div class="invalid-feedback">:message</div>') !!}
                                                 </td>
@@ -93,8 +93,11 @@
                                 </table>
                             </div>
                         </fieldset>
-                        <div class="form-group">
+                        <div class="form-group" wire:loading.remove>
                             <button type="submit" class="btn btn-success btn-sm">Finalizar</button>
+                        </div>
+                        <div wire:loading wire:target="store">
+                            Guardando el documento...
                         </div>
                     </form>
                 </div>

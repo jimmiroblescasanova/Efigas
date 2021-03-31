@@ -12,39 +12,5 @@
 @stop
 
 @section('content')
-    <div class="row">
-        <div class="col-12">
-            <div class="card">
-                <div class="card-body p-0">
-                    <table class="table table-striped table-bordered table-sm">
-                        <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Cliente</th>
-                            <th>Total</th>
-                            <th>Ver</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        @foreach($cotizaciones as $cotizacion)
-                        <tr>
-                            <td>{{ $cotizacion->id }}</td>
-                            <td>{{ $cotizacion->nombre }}</td>
-                            <td class="text-right">{{ $cotizacion->grand_total }}</td>
-                            <td></td>
-                        </tr>
-                        @endforeach
-                        </tbody>
-                    </table>
-                </div>
-                <div class="card-footer">
-                    {{ $cotizaciones->links() }}
-                </div>
-            </div>
-        </div>
-    </div>
-@stop
-
-@section('scripts')
-
+    @livewire('estimations.index')
 @stop

@@ -135,11 +135,14 @@ Route::post('/reports/account-status/excel', 'ReportsController@accountStatusExc
 Route::post('/ajax/account-status', 'ReportsController@accountStatusajax')->name('report02.screen');
 
 Route::get('/test', 'TestController@index');
-//Route::get('scripts', 'ScriptsController@calculateIvaColumn');
 
-Route::get('/cotizacion', 'CotizacionController@index')->name('cotizacion.index');
-Route::get('/cotizacion/create', 'CotizacionController@create')->name('cotizacion.create');
-//Route::post('/cotizacion/create', 'CotizacionController@store')->name('cotizacion.store');
+Route::get('/cotizacion', function () {
+    return view('cotizaciones.index');
+})->name('cotizacion.index');
+
+Route::get('/cotizacion/create', function () {
+    return view('cotizaciones.create');
+})->name('cotizacion.create');
 
 Route::get('/productos', 'ProductosController@index')->name('producto.index');
 Route::get('/productos/cargar', 'ProductosController@create')->name('producto.cargar');
