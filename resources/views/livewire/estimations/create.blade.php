@@ -12,7 +12,7 @@
                         <fieldset>
                             <legend>Datos generales</legend>
                             <div class="row">
-                                <div class="form-group col-md-8">
+                                <div class="form-group col-12 col-md-12">
                                     <label for="nombre">Nombre del cliente: </label>
                                     <input
                                         wire:model="nombre"
@@ -24,13 +24,24 @@
                                     />
                                     {!! $errors->first('nombre', '<div class="invalid-feedback">:message</div>') !!}
                                 </div>
-                                <div class="form-group col-md-4">
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-6 col-md-6">
+                                    <label for="fecha">Correo electrónico</label>
+                                    <input
+                                        wire:model="email"
+                                        type="email"
+                                        class="form-control {{ $errors->first('email') ? 'is-invalid' : '' }}"
+                                        id="email"
+                                    />
+                                    {!! $errors->first('email', '<div class="invalid-feedback">:message</div>') !!}
+                                </div>
+                                <div class="form-group col-6 col-md-6">
                                     <label for="fecha">Fecha</label>
                                     <input
                                         wire:model="fecha"
                                         type="date"
                                         class="form-control {{ $errors->first('fecha') ? 'is-invalid' : '' }}"
-                                        name="fecha"
                                         id="fecha"
                                     />
                                     {!! $errors->first('fecha', '<div class="invalid-feedback">:message</div>') !!}
@@ -38,7 +49,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="direccion">Dirección: </label>
-                                <textarea wire:model="direccion" class="form-control" name="direccion" id="direccion"></textarea>
+                                <textarea wire:model="direccion" class="form-control" id="direccion"></textarea>
                             </div>
                         </fieldset>
                         <fieldset>
@@ -65,6 +76,7 @@
                                                         wire:model="rowInput.{{ $i }}.cantidad"
                                                         type="number"
                                                         class="form-control form-control-sm {{ $errors->first('rowInput.'. $i .'.cantidad') ? 'is-invalid' : '' }}"
+                                                        value="{{ $row['cantidad'] }}"
                                                     />
                                                     {!! $errors->first('rowInput.'. $i .'.cantidad', '<div class="invalid-feedback">:message</div>') !!}
                                                 </td>

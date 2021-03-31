@@ -138,11 +138,15 @@ Route::get('/test', 'TestController@index');
 
 Route::get('/cotizacion', function () {
     return view('cotizaciones.index');
-})->name('cotizacion.index');
+})->name('cotizacion.index')->middleware('auth');
 
 Route::get('/cotizacion/create', function () {
     return view('cotizaciones.create');
-})->name('cotizacion.create');
+})->name('cotizacion.create')->middleware('auth');
+Route::get('/cotizacion/{estimation}/print/', 'CotizacionController@print')
+    ->name('cotizacion.print');
+Route::get('/cotizacion/{estimation}/send', 'CotizacionController@send')
+    ->name('cotizacion.send');
 
 Route::get('/productos', 'ProductosController@index')->name('producto.index');
 Route::get('/productos/cargar', 'ProductosController@create')->name('producto.cargar');

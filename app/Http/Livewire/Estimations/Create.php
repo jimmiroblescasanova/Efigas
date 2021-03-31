@@ -12,7 +12,7 @@ class Create extends Component
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
 
-    public $nombre, $fecha, $direccion;
+    public $nombre, $fecha, $direccion, $email;
     public $searchInput;
     public $rowInput = [];
     public $i = 0;
@@ -34,6 +34,7 @@ class Create extends Component
         $this->nombre = '';
         $this->fecha = '';
         $this->direccion = '';
+        $this->email = '';
     }
 
     public function addInput($id)
@@ -42,6 +43,7 @@ class Create extends Component
         $producto = Producto::findOrFail($id);
 
         $result['id'] = $producto->id;
+        $result['cantidad'] = 1;
         $result['nombre'] = $producto->nombre;
         $result['precio'] = $producto->precio;
 
@@ -54,6 +56,7 @@ class Create extends Component
         $this->validate([
             'nombre' => 'required|string|min:6',
             'fecha' => 'required|date',
+            'email' => 'required|email',
             'direccion' => 'nullable',
             'rowInput' => 'array|min:1',
             'rowInput.*.cantidad' => 'required|numeric',
@@ -71,6 +74,7 @@ class Create extends Component
             'nombre' => $this->nombre,
             'fecha' => $this->fecha,
             'direccion' => $this->direccion,
+            'email' => $this->email,
         ]);
 
         foreach ($this->rowInput as $row) {
@@ -78,6 +82,7 @@ class Create extends Component
                 'id_producto' => $row['id'],
                 'cantidad' => $row['cantidad'],
                 'precio' => $row['precio'],
+                'total' => $row['cantidad'] * $row['precio'],
             ]);
         }
 

@@ -14,4 +14,9 @@ class CotDetalle extends Model
         return $this->belongsTo('App\Cotizacion');
     }
 
+    public function producto()
+    {
+        return $this->belongsTo('App\Producto', 'id_producto');
+    }
+
 }

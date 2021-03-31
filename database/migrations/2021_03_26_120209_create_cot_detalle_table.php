@@ -19,6 +19,7 @@ class CreateCotDetalleTable extends Migration
              $table->foreignId('id_producto')->constrained('productos');
              $table->integer('cantidad');
              $table->integer('precio');
+            $table->integer('total');
              $table->timestamps();
         });
     }
