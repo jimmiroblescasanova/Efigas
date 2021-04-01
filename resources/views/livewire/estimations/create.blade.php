@@ -15,7 +15,7 @@
                                 <div class="form-group col-12 col-md-12">
                                     <label for="nombre">Nombre del cliente: </label>
                                     <input
-                                        wire:model="nombre"
+                                        wire:model.defer="nombre"
                                         type="text"
                                         name="nombre"
                                         id="nombre"
@@ -29,7 +29,7 @@
                                 <div class="form-group col-6 col-md-6">
                                     <label for="fecha">Correo electrónico</label>
                                     <input
-                                        wire:model="email"
+                                        wire:model.defer="email"
                                         type="email"
                                         class="form-control {{ $errors->first('email') ? 'is-invalid' : '' }}"
                                         id="email"
@@ -39,7 +39,7 @@
                                 <div class="form-group col-6 col-md-6">
                                     <label for="fecha">Fecha</label>
                                     <input
-                                        wire:model="fecha"
+                                        wire:model.defer="fecha"
                                         type="date"
                                         class="form-control {{ $errors->first('fecha') ? 'is-invalid' : '' }}"
                                         id="fecha"
@@ -49,7 +49,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="direccion">Dirección: </label>
-                                <textarea wire:model="direccion" class="form-control" id="direccion"></textarea>
+                                <textarea wire:model.defer="direccion" class="form-control" id="direccion"></textarea>
                             </div>
                         </fieldset>
                         <fieldset>
@@ -73,7 +73,7 @@
                                             <tr>
                                                 <td>
                                                     <input
-                                                        wire:model="rowInput.{{ $i }}.cantidad"
+                                                        wire:model.defer="rowInput.{{ $i }}.cantidad"
                                                         type="number"
                                                         class="form-control form-control-sm {{ $errors->first('rowInput.'. $i .'.cantidad') ? 'is-invalid' : '' }}"
                                                         value="{{ $row['cantidad'] }}"
@@ -90,7 +90,7 @@
                                                 </td>
                                                 <td>
                                                     <input
-                                                        wire:model="rowInput.{{ $i }}.precio"
+                                                        wire:model.defer="rowInput.{{ $i }}.precio"
                                                         type="text"
                                                         class="form-control form-control-sm {{ $errors->first('rowInput.'. $i .'.precio') ? 'is-invalid' : '' }}"
                                                         value="{{ $row['precio'] }}"

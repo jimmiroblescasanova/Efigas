@@ -23,7 +23,7 @@ class Create extends Component
         $this->searchInput = '';
     }
 
-    public function updatingSearchInput()
+    public function updatedSearchInput()
     {
         $this->resetPage();
     }

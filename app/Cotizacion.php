@@ -20,7 +20,7 @@ class Cotizacion extends Model
 
     public function getGrandTotalAttribute()
     {
-        return number_format($this->movimientos()->sum('precio'), 2);
+        return number_format($this->movimientos()->sum('total'), 2);
     }
 
     public static function search($search)
